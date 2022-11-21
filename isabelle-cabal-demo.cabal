@@ -1,0 +1,36 @@
+cabal-version:      3.4
+name:               isabelle-cabal-demo
+version:            0.1.0.0
+synopsis:           Demo of Isabelle/Cabal integration
+license:            GPL-3.0-or-later
+license-file:       LICENSE
+author:             Frederik Krogsdal Jacobsen
+maintainer:         fkjac@dtu.dk
+category:           Development
+build-type:         Custom
+
+custom-setup
+  setup-depends: base
+               , Cabal
+               , isabelle-cabal
+
+library
+    x-isabelle-session: Sort
+    x-isabelle-pattern: *:**code**
+    x-isabelle-src-dir: .
+    x-isabelle-prune:   3
+
+    exposed-modules:  Sort
+                    , Orderings
+    autogen-modules: Sort
+                   , Orderings
+    build-depends:    base ^>=4.17.0.0
+
+executable isabelle-cabal-demo
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.17.0.0,
+        isabelle-cabal-demo
+
+    hs-source-dirs:   app
+    ghc-options:      -Wall
