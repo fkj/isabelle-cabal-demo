@@ -10,9 +10,8 @@ category:           Development
 build-type:         Custom
 
 custom-setup
-  setup-depends: base
-               , Cabal
-               , isabelle-cabal
+  setup-depends: base ^>=4.17.0.0
+               , isabelle-cabal ^>=0.1.0.0
 
 library
     x-isabelle-session: Sort
